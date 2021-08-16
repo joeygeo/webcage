@@ -19,7 +19,6 @@ const io = socketio(server);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // this block will run when the client connects
-io.set('transports', ['websocket']);
 io.on('connection', socket => {
   socket.on('joinRoom', ({ username, room }) => {
     const user = newUser(socket.id, username, room);
